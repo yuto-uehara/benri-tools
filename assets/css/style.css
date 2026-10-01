@@ -5,3 +5,30 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tool-link{transition:none}}
 /* PDF tools: scoped controls keep the calculator DOM and behavior intact. */
 .privacy-box{padding:14px 16px;border:1px solid var(--brand);border-radius:10px;background:var(--brand-soft);color:var(--brand);font-weight:650;font-size:.9rem}.pdf-tool>label,.pdf-tool>select,.pdf-tool>input,.pdf-tool>fieldset{margin-top:12px}#drop-zone{border:2px dashed var(--border);border-radius:10px;padding:14px;margin-bottom:18px}.pdf-tool input[type=file]{padding:8px;font-size:16px}.pdf-tool input[type=file]::file-selector-button{max-width:100%;white-space:normal}.pdf-tool .check-label,.pdf-tool .page-item label{display:flex;align-items:center;gap:6px}.pdf-tool input[type=checkbox]{width:20px;min-height:20px;height:20px;flex-shrink:0}.pdf-tool button:disabled{opacity:.45;cursor:default}.file-item{padding:14px;background:var(--result);border:1px solid var(--border);border-radius:10px;margin:12px 0;min-width:0}.file-item img{max-width:140px;max-height:160px;object-fit:contain}.file-item button,.page-item button{margin:4px;padding:6px 10px}.actions{display:flex;flex-wrap:wrap;gap:6px}#page-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin:20px 0}.page-item{min-width:0;background:var(--result);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}.preview{display:flex;align-items:center;justify-content:center;min-height:170px;margin:14px 0;transition:transform .15s}.preview canvas{max-width:100%;max-height:180px;object-fit:contain}.page-item.is-deleted{opacity:.45;background:repeating-linear-gradient(135deg,var(--result) 0 12px,var(--border) 12px 14px)}#pdf-result{display:grid;gap:12px;margin-top:16px}.pdf-download{padding:12px;border:1px solid var(--brand);border-radius:8px;display:block;background:var(--brand-soft);overflow-wrap:anywhere}.pdf-download img{display:block;max-width:150px;max-height:180px;margin-bottom:8px}.footer-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-group a{display:block}.site-nav{gap:6px 12px}
+
+/* ファイル入力はフォーカス可能なまま視覚的に隠す（iOS 対応）。 */
+.pdf-tool .file-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: var(--brand);
+  color: var(--surface);
+  font-weight: 700;
+  cursor: pointer;
+}
+.pdf-tool .file-picker input[type=file] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+.file-picker:focus-within { outline: 3px solid var(--text); outline-offset: 3px; }
+.file-picker:has(input:disabled) { opacity: .45; cursor: default; }
+.selected-files { overflow-wrap: anywhere; margin: 12px 0; }

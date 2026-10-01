@@ -2,10 +2,10 @@
 <rect width="1200" height="630" fill="#f3f7f5"/><rect x="0" y="0" width="1200" height="16" fill="#176858"/>
 <circle cx="1080" cy="70" r="240" fill="#e1efe8"/><circle cx="80" cy="600" r="150" fill="#e1efe8"/>
 <rect x="78" y="96" width="96" height="96" rx="22" fill="#176858"/><rect x="103" y="112" width="46" height="64" rx="6" fill="#fff"/><rect x="111" y="120" width="30" height="14" rx="2" fill="#bfe4d7"/><g fill="#176858"><rect x="111" y="143" width="10" height="9" rx="2"/><rect x="131" y="143" width="10" height="9" rx="2"/><rect x="111" y="160" width="10" height="9" rx="2"/><rect x="131" y="160" width="10" height="9" rx="2"/></g>
-<g font-family="system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic UI', sans-serif">
-<text x="200" y="153" font-size="25" font-weight="600" fill="#176858">無料・登録不要 ／ 10の便利ツール</text>
+<g font-family='"Hiragino Sans","Noto Sans JP","Noto Sans CJK JP","Yu Gothic",sans-serif'>
+<text x="200" y="153" font-size="25" font-weight="600" fill="#176858">無料・登録不要 ／ 計算10種＋PDF7種・全17ツール</text>
 <text x="78" y="306" font-size="66" font-weight="800" fill="#202e3c">かんたん便利ツール集</text>
-<text x="82" y="382" font-size="33" fill="#566677">暮らしの疑問を、すぐに計算。</text>
+<text x="82" y="382" font-size="30" fill="#566677">暮らしの計算も、PDF編集も。PDFもアップロード不要。</text>
 <rect x="80" y="450" width="1038" height="82" rx="16" fill="#176858"/>
-<text x="111" y="502" font-size="25" fill="#fff">年齢・日数・文字数・割り勘・給与・税・和暦・BMI・割合・単位</text>
+<text x="111" y="502" font-size="25" fill="#fff">年齢・日数・文字数・割り勘・税・単位 ／ PDF結合・分割・回転</text>
 </g></svg>

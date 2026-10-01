@@ -1,6 +1,6 @@
 # かんたん便利ツール集
 
-無料・登録不要の日本語ツールを集めた静的サイトです。HTML / CSS / vanilla JavaScriptのみを使用し、ビルド・npmは不要です。PDFツールのみ同梱のpdf-libとpdf.jsを使用します。
+計算ツール10種＋PDFツール7種、計17ツールを無料・登録不要で使える日本語の静的サイトです。HTML / CSS / vanilla JavaScriptのみを使用し、ビルド・npmは不要です。PDFツールのみ同梱のpdf-libとpdf.jsを使用します。
 
 公開先: https://yuto-uehara.github.io/benri-tools/
 
