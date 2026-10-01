@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>割り勘計算 - 端数と幹事の支払額をかんたん計算 | かんたん便利ツール集</title>
+<meta name="description" content="合計金額と人数を入力すると、丸め単位に合わせた各自の金額と幹事の支払額がわかります。無料・登録不要で、入力内容はブラウザ内だけで処理します。スマートフォンからも利用できます。">
+<link rel="canonical" href="https://yuto-uehara.github.io/benri-tools/warikan/">
+<meta property="og:title" content="割り勘計算 - 端数と幹事の支払額をかんたん計算 | かんたん便利ツール集">
+<meta property="og:description" content="合計金額と人数を入力すると、丸め単位に合わせた各自の金額と幹事の支払額がわかります。無料・登録不要で、入力内容はブラウザ内だけで処理します。スマートフォンからも利用できます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yuto-uehara.github.io/benri-tools/warikan/">
+<meta property="og:site_name" content="かんたん便利ツール集">
+<meta property="og:image" content="https://yuto-uehara.github.io/benri-tools/assets/img/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#176858" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141e25" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- ===== AdSense 自動広告スクリプト設置予定箇所 =====
+     審査用コード / 自動広告コード（<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>）をここに貼り付ける。
+     現在は未設置。 ===== -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "かんたん便利ツール集", "item": "https://yuto-uehara.github.io/benri-tools/"}, {"@type": "ListItem", "position": 2, "name": "割り勘計算", "item": "https://yuto-uehara.github.io/benri-tools/warikan/"}]}</script>
+<script src="../assets/js/common.js" defer></script>
+<script src="../assets/js/warikan.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../">かんたん便利ツール集</a><nav class="site-nav" aria-label="メインナビ"><a href="../">ツール一覧</a><a href="../#date">日付・暦</a><a href="../#money">お金・計算</a></nav></div></header>
+<main class="container" id="main"><nav class="breadcrumb" aria-label="パンくず"><a href="../">トップ</a><span aria-hidden="true">›</span>割り勘計算</nav><p class="eyebrow">毎日の「ちょっと計算」を、かんたんに。</p><h1>割り勘計算</h1><p class="lead">合計金額と人数を入力すると、丸め単位に合わせた各自の金額と幹事の支払額がわかります。</p><noscript><p class="noscript">計算にはJavaScriptが必要です。ブラウザの設定で有効にしてください。入力内容はサーバーに送信されません。</p></noscript><section class="tool"><div class="fields"><div class="field"><label for="total">合計金額（円）</label><input type="text" id="total" inputmode="decimal" value="10000"></div><div class="field"><label for="people">人数（幹事を含む）</label><input type="text" id="people" inputmode="decimal" value="3"></div><div class="field"><label for="unit">丸め単位</label><select id="unit"><option value="1">1円</option><option value="10">10円</option><option value="100" selected>100円</option><option value="500">500円</option><option value="1000">1000円</option></select></div><div class="field"><label for="mode">端数の分け方</label><select id="mode"><option value="down" selected>各自を切り捨て・幹事が多め</option><option value="up">各自を切り上げ・幹事が少なめ</option></select></div></div><p class="message" id="message" role="status"></p><div class="result-grid" aria-live="polite" aria-atomic="true"><div class="result-item primary"><span class="result-label">幹事以外の1人あたり</span><output class="result-value" id="per-person" data-value="">—</output></div><div class="result-item"><span class="result-label">幹事の支払額</span><output class="result-value" id="organizer" data-value="">—</output></div><div class="result-item"><span class="result-label">単純に割った金額</span><output class="result-value" id="exact" data-value="">—</output></div></div><p class="breakdown" id="breakdown"></p></section><div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div><section class="how-to"><h2>使い方</h2><ol><li>合計金額と、幹事を含む人数を入力します。</li><li>丸め単位と、切り捨て・切り上げを選びます。</li><li>各自と幹事の支払額、全員の内訳を確認します。</li></ol></section><section class="explanation"><h2>計算方法と知っておきたいこと</h2><h3>端数を幹事の金額で調整</h3><p>合計金額を人数で割り、指定した単位で各自の支払額を丸めます。切り捨てでは幹事以外の金額が少なくなり、不足分を幹事が負担します。切り上げでは幹事以外の金額が多くなり、その分だけ幹事の支払額が減ります。幹事の金額は、合計から「各自の金額×幹事以外の人数」を引くため、内訳の合計は元の金額と一致します。</p><h3>計算例と大きな単位の注意</h3><p>10,000円を3人で100円単位に分けると、切り捨ては各自3,300円、幹事3,400円です。切り上げなら各自3,400円、幹事3,200円になります。少額の会計で丸め単位を大きくすると、切り上げでは幹事の金額がマイナスになることがあります。その場合は集金が合計を超えるため、単位を小さくしてください。</p><h3>人数と支払方法を確認</h3><p>人数には幹事自身も含めてください。1人の場合は丸めずに合計金額を表示します。単純に割った金額は比較用に小数第2位まで示しますが、円単位の現金精算には端数の調整が必要です。飲食量や参加時間に応じた負担差は考慮しないので、参加者間で事前に分け方を決めると安心です。</p></section><section class="related"><h2>関連ツール</h2><div class="related-links"><a href="../tax/">消費税計算</a><a href="../percent/">パーセント計算</a><a href="../salary/">時給・月給・年収換算</a></div></section></main>
+<div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div>
+<footer class="site-footer"><div class="container"><div class="footer-tools"><div class="footer-group"><strong>日付・暦</strong><a href="../age/">年齢計算</a><a href="../days/">日数計算</a><a href="../wareki/">和暦・西暦変換</a></div><div class="footer-group"><strong>お金・計算</strong><a href="../warikan/">割り勘計算</a><a href="../salary/">時給・月給・年収換算</a><a href="../tax/">消費税計算</a><a href="../percent/">パーセント計算</a></div><div class="footer-group"><strong>文章</strong><a href="../char-count/">文字数カウント</a></div><div class="footer-group"><strong>健康・生活</strong><a href="../bmi/">BMI計算</a><a href="../unit/">単位変換</a></div></div><nav class="footer-legal" aria-label="サイト情報"><a href="../privacy/">プライバシーポリシー</a><a href="../about/">運営者情報</a><a href="../disclaimer/">免責事項</a></nav><p class="copyright">© 2026 かんたん便利ツール集</p></div></footer>
+</body>
+</html>

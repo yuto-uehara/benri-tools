@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>年齢計算 - 生年月日から満年齢・学年・和暦を自動計算 | かんたん便利ツール集</title>
+<meta name="description" content="生年月日と基準日から、満年齢・数え年・学年の目安・干支をまとめて確認できます。無料・登録不要で、入力内容はブラウザ内だけで処理します。スマートフォンからも利用できます。">
+<link rel="canonical" href="https://yuto-uehara.github.io/benri-tools/age/">
+<meta property="og:title" content="年齢計算 - 生年月日から満年齢・学年・和暦を自動計算 | かんたん便利ツール集">
+<meta property="og:description" content="生年月日と基準日から、満年齢・数え年・学年の目安・干支をまとめて確認できます。無料・登録不要で、入力内容はブラウザ内だけで処理します。スマートフォンからも利用できます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yuto-uehara.github.io/benri-tools/age/">
+<meta property="og:site_name" content="かんたん便利ツール集">
+<meta property="og:image" content="https://yuto-uehara.github.io/benri-tools/assets/img/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#176858" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141e25" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- ===== AdSense 自動広告スクリプト設置予定箇所 =====
+     審査用コード / 自動広告コード（<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>）をここに貼り付ける。
+     現在は未設置。 ===== -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "かんたん便利ツール集", "item": "https://yuto-uehara.github.io/benri-tools/"}, {"@type": "ListItem", "position": 2, "name": "年齢計算", "item": "https://yuto-uehara.github.io/benri-tools/age/"}]}</script>
+<script src="../assets/js/common.js" defer></script>
+<script src="../assets/js/age.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../">かんたん便利ツール集</a><nav class="site-nav" aria-label="メインナビ"><a href="../">ツール一覧</a><a href="../#date">日付・暦</a><a href="../#money">お金・計算</a></nav></div></header>
+<main class="container" id="main"><nav class="breadcrumb" aria-label="パンくず"><a href="../">トップ</a><span aria-hidden="true">›</span>年齢計算</nav><p class="eyebrow">毎日の「ちょっと計算」を、かんたんに。</p><h1>年齢計算</h1><p class="lead">生年月日と基準日から、満年齢・数え年・学年の目安・干支をまとめて確認できます。</p><noscript><p class="noscript">計算にはJavaScriptが必要です。ブラウザの設定で有効にしてください。入力内容はサーバーに送信されません。</p></noscript><section class="tool"><div class="fields"><div class="field"><label for="birthdate">生年月日</label><input type="date" id="birthdate" value=""></div><div class="field"><label for="basedate">基準日</label><input type="date" id="basedate" value=""></div></div><p class="message" id="message" role="status"></p><div class="result-grid" aria-live="polite" aria-atomic="true"><div class="result-item primary"><span class="result-label">満年齢</span><output class="result-value" id="age-years" data-value="">—</output></div><div class="result-item"><span class="result-label">年・月・日の詳細</span><output class="result-value" id="age-detail" data-value="">—</output></div><div class="result-item"><span class="result-label">数え年</span><output class="result-value" id="kazoe" data-value="">—</output></div><div class="result-item"><span class="result-label">生年月日の和暦</span><output class="result-value" id="birth-wareki" data-value="">—</output></div><div class="result-item"><span class="result-label">学年の目安</span><output class="result-value" id="school-grade" data-value="">—</output></div><div class="result-item"><span class="result-label">生年の干支</span><output class="result-value" id="eto" data-value="">—</output></div></div></section><div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div><section class="how-to"><h2>使い方</h2><ol><li>生年月日を選びます。</li><li>調べたい基準日を選びます。初期値は今日です。</li><li>満年齢・詳細・学年などの結果を確認します。</li></ol></section><section class="explanation"><h2>計算方法と知っておきたいこと</h2><h3>満年齢と数え年の違い</h3><p>満年齢は生まれたときが0歳で、誕生日を迎えるたびに1歳増える数え方です。数え年は生まれた年を1歳とし、年が変わるたびに加算するため、基準日の年から生年を引いて1を足します。このツールでは一般的な誕生日当日の表示に合わせ、2月29日生まれの方は、平年には3月1日から満年齢が増えるようにしています。</p><h3>月日と学年はどう求める？</h3><p>詳細の月日は直近の満年齢到達日から数えます。そこから月単位で進め、対応する日がない月は月末に合わせ、残りを日数で表示します。学年は4月から翌年3月までを1年度とし、4月1日生まれまでを同じ学年に含めます。大学の表示は進学や浪人、留年を考慮しない相当学年です。実際の在籍学年や入学資格を保証するものではありません。</p><h3>日付を指定する場面</h3><p>基準日を変更すると、記念日や行事の日に何歳になるかを調べられます。和暦は元号が変わった日を境界として変換し、干支は生年の十二支を表示します。提出書類に記載する年齢は、その書類が指定する基準日と数え方も確認してください。</p></section><section class="related"><h2>関連ツール</h2><div class="related-links"><a href="../days/">日数計算</a><a href="../wareki/">和暦・西暦変換</a><a href="../bmi/">BMI計算</a></div></section></main>
+<div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div>
+<footer class="site-footer"><div class="container"><div class="footer-tools"><div class="footer-group"><strong>日付・暦</strong><a href="../age/">年齢計算</a><a href="../days/">日数計算</a><a href="../wareki/">和暦・西暦変換</a></div><div class="footer-group"><strong>お金・計算</strong><a href="../warikan/">割り勘計算</a><a href="../salary/">時給・月給・年収換算</a><a href="../tax/">消費税計算</a><a href="../percent/">パーセント計算</a></div><div class="footer-group"><strong>文章</strong><a href="../char-count/">文字数カウント</a></div><div class="footer-group"><strong>健康・生活</strong><a href="../bmi/">BMI計算</a><a href="../unit/">単位変換</a></div></div><nav class="footer-legal" aria-label="サイト情報"><a href="../privacy/">プライバシーポリシー</a><a href="../about/">運営者情報</a><a href="../disclaimer/">免責事項</a></nav><p class="copyright">© 2026 かんたん便利ツール集</p></div></footer>
+</body>
+</html>

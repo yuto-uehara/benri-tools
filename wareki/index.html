@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>和暦・西暦変換 - 元号の境界日にも対応した変換と早見表 | かんたん便利ツール集</title>
+<meta name="description" content="明治から令和までの和暦と西暦を相互に変換。改元した年の表記と、干支・年齢の早見表も確認できます。無料・登録不要で、入力内容はブラウザ内だけで処理します。スマートフォンからも利用できます。">
+<link rel="canonical" href="https://yuto-uehara.github.io/benri-tools/wareki/">
+<meta property="og:title" content="和暦・西暦変換 - 元号の境界日にも対応した変換と早見表 | かんたん便利ツール集">
+<meta property="og:description" content="明治から令和までの和暦と西暦を相互に変換。改元した年の表記と、干支・年齢の早見表も確認できます。無料・登録不要で、入力内容はブラウザ内だけで処理します。スマートフォンからも利用できます。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yuto-uehara.github.io/benri-tools/wareki/">
+<meta property="og:site_name" content="かんたん便利ツール集">
+<meta property="og:image" content="https://yuto-uehara.github.io/benri-tools/assets/img/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#176858" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141e25" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- ===== AdSense 自動広告スクリプト設置予定箇所 =====
+     審査用コード / 自動広告コード（<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>）をここに貼り付ける。
+     現在は未設置。 ===== -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "かんたん便利ツール集", "item": "https://yuto-uehara.github.io/benri-tools/"}, {"@type": "ListItem", "position": 2, "name": "和暦・西暦変換", "item": "https://yuto-uehara.github.io/benri-tools/wareki/"}]}</script>
+<script src="../assets/js/common.js" defer></script>
+<script src="../assets/js/wareki.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="../">かんたん便利ツール集</a><nav class="site-nav" aria-label="メインナビ"><a href="../">ツール一覧</a><a href="../#date">日付・暦</a><a href="../#money">お金・計算</a></nav></div></header>
+<main class="container" id="main"><nav class="breadcrumb" aria-label="パンくず"><a href="../">トップ</a><span aria-hidden="true">›</span>和暦・西暦変換</nav><p class="eyebrow">毎日の「ちょっと計算」を、かんたんに。</p><h1>和暦・西暦変換</h1><p class="lead">明治から令和までの和暦と西暦を相互に変換。改元した年の表記と、干支・年齢の早見表も確認できます。</p><noscript><p class="noscript">計算にはJavaScriptが必要です。ブラウザの設定で有効にしてください。入力内容はサーバーに送信されません。</p></noscript><section class="tool"><h2>日付から和暦へ</h2><div class="field"><label for="date-input">西暦の日付</label><input type="date" id="date-input" value=""></div><div class="result-grid" aria-live="polite" aria-atomic="true"><div class="result-item primary"><span class="result-label">和暦の日付</span><output class="result-value" id="wareki-result" data-value="">—</output></div></div><p class="message" id="date-message" role="status"></p></section><section class="tool"><h2>和暦年から西暦年へ</h2><div class="fields"><div class="field"><label for="era">元号</label><select id="era"><option value="meiji">明治</option><option value="taisho">大正</option><option value="showa">昭和</option><option value="heisei">平成</option><option value="reiwa" selected>令和</option></select></div><div class="field"><label for="era-year">元号の年数</label><input type="text" id="era-year" inputmode="decimal" value="" placeholder="元年は1と入力"></div></div><div class="result-grid" aria-live="polite" aria-atomic="true"><div class="result-item primary"><span class="result-label">西暦年</span><output class="result-value" id="seireki-result" data-value="">—</output></div></div><p class="message" id="era-message" role="status"></p></section><section class="tool"><h2>西暦年から和暦年へ</h2><div class="field"><label for="year-input">西暦年</label><input type="text" id="year-input" inputmode="decimal" value=""></div><div class="result-grid" aria-live="polite" aria-atomic="true"><div class="result-item primary"><span class="result-label">その年に含まれる和暦</span><output class="result-value" id="wareki-year-result" data-value="">—</output></div></div><p class="message" id="year-message" role="status"></p></section><section class="how-to"><h2>西暦・和暦・干支・年齢の早見表</h2><p>年齢は<span id="table-year">今年</span>年の誕生日を迎えた後の満年齢です。改元年は両方の元号を掲載しています。</p><div class="table-wrap" tabindex="0" role="region" aria-label="和暦早見表（横にスクロールできます）"><table><caption>1926年〜2030年の早見表</caption><thead><tr><th scope="col">西暦</th><th scope="col">和暦</th><th scope="col">干支</th><th scope="col">今年の年齢</th></tr></thead><tbody id="era-table-body"></tbody></table></div></section><div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div><section class="how-to"><h2>使い方</h2><ol><li>日付の変換では西暦の日付を選びます。</li><li>和暦年の変換では元号を選び、元年は1と入力します。</li><li>西暦年の変換と早見表で、改元した年の両方の元号を確認できます。</li></ol></section><section class="explanation"><h2>計算方法と知っておきたいこと</h2><h3>改元した日はどちらの元号？</h3><p>和暦は西暦の年だけでは決まらないことがあります。2019年4月30日は平成31年、翌5月1日は令和元年です。同様に1989年1月7日までが昭和64年、1月8日からが平成元年です。日付からの変換は開始日を境界にし、西暦年だけの変換はその年に含まれる元号をすべて表示します。最初の年は「1年」ではなく「元年」と表記します。</p><h3>年数の入力と対応範囲</h3><p>和暦から西暦年を求めるときは、元年を1として入力します。明治は45年、大正は15年、昭和は64年、平成は31年が最終年で、令和には現在、確定した最終年がありません。最終年や元年でも、実際にその元号を使える月日は限られます。年だけの結果を、別の日付にそのまま当てはめないようにしてください。</p><h3>明治と早見表の注意</h3><p>このツールは明治の開始日をグレゴリオ暦の1868年10月23日として扱い、それより前の日付には対応しません。当時の旧暦の日付を新暦に直す機能ではありません。早見表の年齢は今年の誕生日後の満年齢で、まだ誕生日が来ていない方は1歳引いて読みます。干支は生年に対応する十二支を掲載しています。</p></section><section class="related"><h2>関連ツール</h2><div class="related-links"><a href="../age/">年齢計算</a><a href="../days/">日数計算</a><a href="../unit/">単位変換</a></div></section></main>
+<div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div>
+<footer class="site-footer"><div class="container"><div class="footer-tools"><div class="footer-group"><strong>日付・暦</strong><a href="../age/">年齢計算</a><a href="../days/">日数計算</a><a href="../wareki/">和暦・西暦変換</a></div><div class="footer-group"><strong>お金・計算</strong><a href="../warikan/">割り勘計算</a><a href="../salary/">時給・月給・年収換算</a><a href="../tax/">消費税計算</a><a href="../percent/">パーセント計算</a></div><div class="footer-group"><strong>文章</strong><a href="../char-count/">文字数カウント</a></div><div class="footer-group"><strong>健康・生活</strong><a href="../bmi/">BMI計算</a><a href="../unit/">単位変換</a></div></div><nav class="footer-legal" aria-label="サイト情報"><a href="../privacy/">プライバシーポリシー</a><a href="../about/">運営者情報</a><a href="../disclaimer/">免責事項</a></nav><p class="copyright">© 2026 かんたん便利ツール集</p></div></footer>
+</body>
+</html>

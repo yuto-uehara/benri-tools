@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yuto-uehara.github.io/benri-tools/sitemap.xml
