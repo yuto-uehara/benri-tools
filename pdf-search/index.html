@@ -1,0 +1,58 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF内検索・ハイライト - アップロード不要・無料でPDFの文字を検索 | かんたん便利ツール集</title>
+<meta name="description" content="PDF内の日本語やキーワードを検索し、一致箇所を色付きでハイライトして保存できます。全角・半角の表記ゆれや複数キーワードにも対応。無料・登録不要で、ファイルはアップロードせずブラウザ内だけで処理します。">
+<link rel="canonical" href="https://yuto-uehara.github.io/benri-tools/pdf-search/">
+<meta property="og:title" content="PDF内検索・ハイライト - アップロード不要 | かんたん便利ツール集">
+<meta property="og:description" content="PDF内の日本語やキーワードを検索し、一致箇所を色付きでハイライトして保存できます。全角・半角の表記ゆれや複数キーワードにも対応。無料・登録不要で、ファイルはアップロードせずブラウザ内だけで処理します。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://yuto-uehara.github.io/benri-tools/pdf-search/">
+<meta property="og:site_name" content="かんたん便利ツール集">
+<meta property="og:image" content="https://yuto-uehara.github.io/benri-tools/assets/img/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#176858" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141e25" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/css/style.css">
+<!-- ===== AdSense 自動広告スクリプト設置予定箇所 =====
+     審査用コード / 自動広告コード（<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>）をここに貼り付ける。
+     現在は未設置。 ===== -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "かんたん便利ツール集", "item": "https://yuto-uehara.github.io/benri-tools/"}, {"@type": "ListItem", "position": 2, "name": "PDF内検索・ハイライト", "item": "https://yuto-uehara.github.io/benri-tools/pdf-search/"}]}</script>
+<script src="../assets/js/common.js" defer></script>
+<script src="../assets/vendor/pdf-lib/pdf-lib.min.js" defer></script><script type="module" src="../assets/js/pdf-search.js"></script>
+</head><body><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><div class="container header-inner"><a class="brand" href="../">かんたん便利ツール集</a><nav class="site-nav" aria-label="メインナビ"><a href="../">ツール一覧</a><a href="../#date">日付・暦</a><a href="../#money">お金・計算</a><a href="../#pdf-tools">PDFツール</a></nav></div></header><main class="container" id="main"><nav class="breadcrumb" aria-label="パンくず"><a href="../">トップ</a><span>›</span>PDF内検索・ハイライト</nav><h1>PDF内検索・ハイライト</h1><p class="privacy-box">ファイルはサーバーに送信されません。すべてお使いの端末（ブラウザ）内で処理されます。</p><p class="lead">PDFの文字を検索し、一致箇所へ移動。色付きのハイライトを付けて保存できます。</p><noscript><p>利用にはJavaScriptを有効にしてください。</p></noscript><section class="tool pdf-tool pdf-search-tool" aria-label="PDF内検索">
+<div id="drop-zone"><label class="file-picker" for="pdf-input">PDFファイルを選ぶ<input type="file" id="pdf-input" accept="application/pdf,.pdf"></label><p id="selected-files" class="selected-files" aria-live="polite">ファイルは選択されていません。</p><p class="help">ここへドラッグ＆ドロップしても選べます。1ファイル100MB以下。元ファイルは変更しません。</p></div>
+<p id="pdf-error" class="message" role="alert"></p><p id="pdf-status" aria-live="polite"></p>
+<p id="no-text-message" class="message" role="status" hidden></p>
+<label for="search-input">検索する文字</label>
+<p id="search-help" class="help">入力すると自動検索。Enterで次へ、Shift+Enterで前へ移動します。</p>
+<label class="check-label"><input id="normalize" type="checkbox" checked>全角・半角、大文字・小文字を区別しない</label>
+<label class="check-label"><input id="multi" type="checkbox">スペース区切りで複数キーワード</label>
+<div class="search-toolbar">
+<input id="search-input" type="search" enterkeyhint="search" placeholder="例：請求書" aria-describedby="search-help">
+<div class="search-navigation"><button id="prev-match" type="button" disabled>前へ</button><output id="match-count" data-total="0" data-current="0" data-query="" data-state="done" aria-label="検索件数"></output><button id="next-match" type="button" disabled>次へ</button></div>
+</div>
+<div id="keyword-summary" aria-label="キーワードごとの件数"></div>
+<p id="match-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+<div id="result-list" aria-label="検索結果一覧"></div>
+<label for="export-mode">保存方法</label><select id="export-mode"><option value="annot">ハイライト注釈（推奨）</option><option value="draw">ページに直接描画</option></select>
+<p class="help">ハイライト注釈は、対応する他のPDFビューアでもハイライトとして表示・削除できます。ページに直接描画すると半透明の四角をページに描き込むため、注釈を表示しないビューアでも見えます。</p>
+<button id="export" type="button">ハイライトして保存</button><div id="pdf-result" data-state="idle"></div>
+<div id="viewer" aria-label="PDFプレビュー"></div>
+</section><div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div><section class="how-to"><h2>使い方</h2><ol>
+<li>「PDFファイルを選ぶ」で検索したいPDFを開き、文字の読み取りを待ちます。</li>
+<li>「検索する文字」に語句を入力します。必要に応じて「全角・半角、大文字・小文字を区別しない」を切り替えます。</li>
+<li>複数の語句を探すときは「スペース区切りで複数キーワード」を選び、語句をスペースで区切ります。</li>
+<li>「前へ」「次へ」や検索結果の行を押して一致箇所を確認します。現在の箇所はオレンジで表示されます。</li>
+<li>「保存方法」を選び、「ハイライトして保存」を押します。下のダウンロードリンクから保存し、出力PDFを確認します。</li>
+</ol></section>
+<section class="explanation"><h2>解説・よくある質問</h2>
+<h3>どのような文字を検索できますか？</h3><p>PDFに記録された文字情報をページごとに読み取って検索します。全角・半角や英字の大小をまとめて探せるほか、複数キーワードは色別に表示できます。同じ行で分割された文字も検索対象です。文字情報の記録方法によっては、見た目と検索結果が異なる場合があります。</p>
+<h3>スキャンしたPDFを検索できないのはなぜ？</h3><p>紙を撮影・スキャンしただけのPDFは画像で、検索に必要な文字情報がありません。OCR（文字認識）でテキストレイヤーを付ける必要があります。このツールはOCRを行いません。</p>
+<h3>ハイライト注釈とは？</h3><p>本文を変えずに目印を追加するPDFの注釈です。対応ビューアで表示・削除できますが、色や濃さはビューアによって異なります。「ページに直接描画」は本文に色を重ねるため注釈として削除できません。元ファイルを保管してください。</p>
+<h3>ファイルは送信されますか？</h3><p>同梱のJavaScriptが端末内で読み取り・検索・保存を行います。文書をアップロードする通信はありません。</p>
+<h3>スマホで保存するには？</h3><p>ダウンロードリンクを押します。iPhoneのSafariでは開いたPDFの共有メニューから「ファイルに保存」も利用できます。Androidでは通常「ダウンロード」フォルダから確認できます。</p>
+</section><section class="related"><h2>関連ツール</h2><div class="related-links"><a href="../pdf-merge/">PDF結合</a><a href="../pdf-split/">PDF分割</a><a href="../pdf-pages/">ページ削除・抽出・並べ替え</a><a href="../pdf-rotate/">PDF回転</a><a href="../image-to-pdf/">画像→PDF</a><a href="../pdf-to-image/">PDF→画像</a><a href="../pdf-stamp/">ページ番号・テキスト挿入</a></div></section></main><div class="ad-slot"><!-- AdSense 広告ユニット設置予定箇所（現在は未設置） --></div><footer class="site-footer"><div class="container"><div class="footer-tools"><div class="footer-group"><strong>日付・暦</strong><a href="../age/">年齢計算</a><a href="../days/">日数計算</a><a href="../wareki/">和暦・西暦変換</a></div><div class="footer-group"><strong>お金・計算</strong><a href="../warikan/">割り勘計算</a><a href="../salary/">時給・月給・年収換算</a><a href="../tax/">消費税計算</a><a href="../percent/">パーセント計算</a></div><div class="footer-group"><strong>文章</strong><a href="../char-count/">文字数カウント</a></div><div class="footer-group"><strong>健康・生活</strong><a href="../bmi/">BMI計算</a><a href="../unit/">単位変換</a></div><div class="footer-group"><strong>PDFツール</strong><a href="../pdf-merge/">PDF結合</a><a href="../pdf-split/">PDF分割</a><a href="../pdf-pages/">ページ削除・抽出・並べ替え</a><a href="../pdf-rotate/">PDF回転</a><a href="../image-to-pdf/">画像→PDF</a><a href="../pdf-to-image/">PDF→画像</a><a href="../pdf-stamp/">ページ番号・テキスト挿入</a><a href="../pdf-search/">PDF内検索・ハイライト</a></div></div><nav class="footer-legal" aria-label="サイト情報"><a href="../privacy/">プライバシーポリシー</a><a href="../about/">運営者情報</a><a href="../disclaimer/">免責事項</a><a href="../license/">ライセンス</a></nav><p class="copyright">© 2026 かんたん便利ツール集</p></div></footer></body></html>

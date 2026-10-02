@@ -32,3 +32,42 @@
 .file-picker:focus-within { outline: 3px solid var(--text); outline-offset: 3px; }
 .file-picker:has(input:disabled) { opacity: .45; cursor: default; }
 .selected-files { overflow-wrap: anywhere; margin: 12px 0; }
+
+/* PDF内検索: ページは白のまま、操作欄と一覧はサイトのテーマに合わせる。 */
+.pdf-search-tool{position:relative;min-width:0}
+.pdf-search-tool [hidden]{display:none}
+.search-toolbar{position:sticky;top:0;z-index:5;display:grid;gap:8px;background:var(--surface);padding:12px 0;border-bottom:1px solid var(--border)}
+.pdf-search-tool .check-label{font-size:.8rem;margin:8px 0;min-height:30px}
+.search-navigation{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.search-navigation button{margin:0;flex:0 0 auto}
+#match-count{flex:1;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+#keyword-summary{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.keyword-chip{display:inline-flex;align-items:center;gap:6px;max-width:100%;font-size:.8rem;border:1px solid var(--border);border-radius:20px;padding:4px 10px;overflow-wrap:anywhere}
+.keyword-swatch{width:14px;height:14px;border:1px solid #555;flex-shrink:0;border-radius:3px}
+#result-list{max-height:280px;overflow-y:auto;overscroll-behavior:contain;margin-bottom:16px}
+#result-list:empty{display:none}
+@media(max-width:599px){#result-list{max-height:200px}}
+#result-list .result-item{display:flex;gap:10px;align-items:baseline;width:100%;margin:6px 0;text-align:left;color:var(--text);font-size:.85rem;font-weight:400;border:1px solid var(--border);background:var(--result);padding:10px}
+#result-list .result-item.is-current{border-color:var(--brand);box-shadow:inset 3px 0 var(--brand)}
+.result-page{flex-shrink:0;font-weight:700}
+#result-list mark{color:#17252c;border-radius:2px;padding:0 1px}
+#viewer{width:100%;max-width:800px;margin:16px auto;min-width:0}
+.pdf-page{position:relative;margin:0 auto 20px;background:white;color:#202e3c;max-width:100%;overflow:hidden;box-shadow:0 2px 8px #0002;isolation:isolate}
+.pdf-page>canvas{display:block;position:absolute;inset:0;max-width:100%}
+.pdf-page .hit-layer{position:absolute;inset:0;pointer-events:none;z-index:2;mix-blend-mode:multiply}
+.pdf-page .hit{position:absolute;opacity:.5}
+.pdf-page .hit.current{background:#ff9800!important;opacity:.65}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+/* pdf.js TextLayer (Apache-2.0): CSSネストを展開。文字の拡大率はviewport.scale。 */
+.pdf-page .textLayer{color-scheme:only light;position:absolute;text-align:initial;inset:0;overflow:hidden;opacity:1;line-height:1;letter-spacing:normal;word-spacing:normal;-webkit-text-size-adjust:none;text-size-adjust:none;forced-color-adjust:none;transform-origin:0 0;caret-color:#202e3c;z-index:1;--min-font-size:1;--text-scale-factor:calc(var(--total-scale-factor) * var(--min-font-size));--min-font-size-inv:calc(1 / var(--min-font-size))}
+.pdf-page .textLayer span,.pdf-page .textLayer br{color:transparent;position:absolute;white-space:pre;cursor:text;transform-origin:0% 0%;-webkit-user-select:text;user-select:text}
+.pdf-page .textLayer> :not(.markedContent),.pdf-page .textLayer .markedContent span:not(.markedContent){z-index:1;--font-height:0;font-size:calc(var(--text-scale-factor) * var(--font-height));--scale-x:1;--rotate:0deg;transform:rotate(var(--rotate)) scaleX(var(--scale-x)) scale(var(--min-font-size-inv))}
+.pdf-page .textLayer .markedContent{display:contents}
+.pdf-page .textLayer span[role="img"]{-webkit-user-select:none;user-select:none;cursor:default}
+.pdf-page .textLayer ::selection{background:rgba(0,100,255,.25);color:transparent}
+.pdf-page .textLayer br::selection{background:transparent}
+.pdf-page .textLayer .endOfContent{display:block;position:absolute;inset:100% 0 0;z-index:0;cursor:default;-webkit-user-select:none;user-select:none}
+.pdf-page .textLayer.selecting .endOfContent{top:0}
+.pdf-page .textLayer[data-main-rotation="90"]{transform:rotate(90deg) translateY(-100%)}
+.pdf-page .textLayer[data-main-rotation="180"]{transform:rotate(180deg) translate(-100%,-100%)}
+.pdf-page .textLayer[data-main-rotation="270"]{transform:rotate(270deg) translateX(-100%)}

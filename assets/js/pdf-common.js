@@ -13,7 +13,8 @@ function updateSingleControls() {
     if ($(id)) $(id).disabled = busy || !singleReady;
   }
 }
-export function clearResult() {
+export function clearResult({ resetSizeWarning = false } = {}) {
+  if (resetSizeWarning) sizeWarning = false;
   urls.forEach(URL.revokeObjectURL);
   urls = [];
   $('pdf-result').replaceChildren();
@@ -161,6 +162,7 @@ export async function renderer(item) {
   const lib = await pdfjsPromise;
   const loadingTask = lib.getDocument({
     data: item.bytes.slice(),
+    verbosity: lib.VerbosityLevel.ERRORS,
     cMapUrl: new URL('../vendor/pdfjs/cmaps/', import.meta.url).href,
     cMapPacked: true,
     standardFontDataUrl: new URL('../vendor/pdfjs/standard_fonts/', import.meta.url).href,
